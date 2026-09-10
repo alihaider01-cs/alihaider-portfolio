@@ -93,6 +93,7 @@ h1 span:not(.accent) { display: inline-block; animation: title-sway 6s ease-in-o
 
 /* Reference-matched landing canvas: the hero is intentionally distinct from the portfolio body. */
 .hero { width: 100%; min-height: 100vh; max-width: none; padding: 74px 40px 34px; background: #0c0d0d; }
+.site-header { display: none; }
 .hero-stage { position: relative; width: min(1180px, 100%); height: calc(100vh - 108px); min-height: 560px; margin: 0 auto; overflow: hidden; background: #fff; }
 .hero-stage-nav, .stage-bottom { position: absolute; z-index: 5; left: 30px; right: 30px; display: flex; align-items: center; justify-content: space-between; font: 10px var(--mono); letter-spacing: .04em; }
 .hero-stage-nav { top: 24px; }.stage-bottom { bottom: 22px; color: #737878; }
