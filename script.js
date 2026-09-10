@@ -36,6 +36,26 @@ if (cursorDot && cursorRing && window.matchMedia("(pointer: fine)").matches) {
 heroPhoto?.addEventListener("load", () => heroPhoto.classList.add("loaded"));
 heroPhoto?.addEventListener("error", () => heroPhoto.remove());
 
+const revealItems = document.querySelectorAll(
+  ".about-section, .skills-band, .work-section, .experience-section, .contact-section, .section-heading, .about-content, .skill-list, .project-card, .experience-card, .contact-inner",
+);
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("scroll-reveal", "is-visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.12 },
+);
+
+revealItems.forEach((item) => {
+  item.classList.add("scroll-reveal");
+  revealObserver.observe(item);
+});
+
 document.querySelectorAll(".magnetic").forEach((element) => {
   element.addEventListener("pointermove", (event) => {
     const bounds = element.getBoundingClientRect();
