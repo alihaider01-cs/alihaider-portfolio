@@ -37,7 +37,7 @@ heroPhoto?.addEventListener("load", () => heroPhoto.classList.add("loaded"));
 heroPhoto?.addEventListener("error", () => heroPhoto.remove());
 
 const revealItems = document.querySelectorAll(
-  ".about-section, .skills-band, .work-section, .experience-section, .contact-section, .section-heading, .about-content, .skill-list, .project-card, .experience-card, .contact-inner",
+  ".about-section, .skills-band, .work-section, .services-section, .projects-section, .experience-section, .contact-section, .section-heading, .about-content, .skill-list, .project-card, .services-band, .services-content, .project-list, .experience-card, .contact-inner",
 );
 const revealObserver = new IntersectionObserver(
   (entries) => {
