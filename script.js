@@ -68,3 +68,42 @@ document.querySelectorAll(".magnetic").forEach((element) => {
     element.style.transform = "";
   });
 });
+
+const showcase = document.querySelector(".project-showcase");
+const showcaseCards = [...document.querySelectorAll(".project-rail .project-card")];
+const previews = [...document.querySelectorAll(".project-preview")];
+const showcaseCount = document.querySelector(".showcase-count");
+
+function setShowcaseProject(index) {
+  const activeIndex = Math.max(0, Math.min(index, previews.length - 1));
+  showcaseCards.forEach((card, cardIndex) => {
+    card.classList.toggle("is-active", cardIndex === activeIndex);
+  });
+  previews.forEach((preview, previewIndex) => {
+    preview.classList.toggle("is-current", previewIndex === activeIndex);
+  });
+  if (showcaseCount) {
+    showcaseCount.textContent = `${String(activeIndex + 1).padStart(2, "0")} / ${String(previews.length).padStart(2, "0")}`;
+  }
+}
+
+if (showcase && showcaseCards.length && previews.length) {
+  showcaseCards.forEach((card) => {
+    card.addEventListener("mouseenter", () => setShowcaseProject(Number(card.dataset.project)));
+    card.addEventListener("focus", () => setShowcaseProject(Number(card.dataset.project)));
+  });
+
+  const showcaseObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const cardIndex = showcaseCards.indexOf(entry.target);
+        if (cardIndex !== -1) setShowcaseProject(cardIndex);
+      });
+    },
+    { rootMargin: "-35% 0px -45% 0px", threshold: 0 },
+  );
+
+  showcaseCards.forEach((card) => showcaseObserver.observe(card));
+  setShowcaseProject(0);
+}
