@@ -43,8 +43,9 @@ const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add("scroll-reveal", "is-visible");
-        revealObserver.unobserve(entry.target);
+        entry.target.classList.add("is-visible");
+      } else {
+        entry.target.classList.remove("is-visible");
       }
     });
   },
