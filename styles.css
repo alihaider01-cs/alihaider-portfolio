@@ -312,3 +312,21 @@ html { scrollbar-color: #5d3935 #100b0d; scrollbar-width: thin; }
 @media (max-width: 760px) {
   .about-intro { padding: 20px 18px; }
 }
+
+/* Phone-only hero composition: keep the cinematic layout readable without changing desktop. */
+@media (max-width: 760px) {
+  .hero, .hero-stage { height: 100svh; min-height: 620px; }
+  .hero-stage-nav { left: 16px; right: 16px; top: 18px; }
+  .stage-logo { gap: 7px; font-size: 10px; }
+  .stage-logo span { width: 30px; height: 30px; }
+  .stage-resume { padding: 9px 12px; font-size: 8px; }
+  .stage-kicker { top: 78px; left: 16px; font-size: 8px; }
+  .cinematic-copy { left: 6%; bottom: 51%; gap: 5px; }
+  .cinematic-copy span { font-size: 12px; }
+  .cinematic-copy strong { max-width: 88vw; font-size: clamp(43px, 13vw, 58px); line-height: .84; }
+  .cinematic-portrait { width: 84vw; height: 78%; left: 50%; margin-bottom: 18px; }
+  .cinematic-work { right: 5%; bottom: 27%; width: 132px; gap: 8px; padding: 11px 12px 13px; }
+  .cinematic-work strong { font-size: 10px; line-height: 1.35; }
+  .work-pill { font-size: 8px; }
+  .cinematic-bottom { left: 6%; right: 6%; bottom: 14px; font-size: 7px; }
+}
